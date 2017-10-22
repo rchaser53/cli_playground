@@ -1,0 +1,46 @@
+{
+  "name": "cli_playground",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run tsc && ava",
+    "pretsc": "rimraf scripts/js",
+    "tsc": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rchaser53/cli_playground.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rchaser53/cli_playground/issues"
+  },
+  "homepage": "https://github.com/rchaser53/cli_playground#readme",
+  "devDependencies": {
+    "@types/node": "^7.0.31",
+    "app-root-dir": "^1.0.2",
+    "ava": "^0.19.1",
+    "base-64": "^0.1.0",
+    "copyfiles": "^1.2.0",
+    "del": "^3.0.0",
+    "fs-jetpack": "^1.2.0",
+    "glob": "^7.1.2",
+    "is-glob": "^4.0.0",
+    "less": "^2.0.0",
+    "less-plugin-clean-css": "^1.5.1",
+    "replace-in-file": "^2.5.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.4.3",
+    "typescript": "^2.5.3",
+    "utf8": "^2.1.2"
+  },
+  "ava": {
+    "files": [
+      "scripts/js/__tests__/**/*.js"
+    ],
+    "concurrency": 5,
+    "powerAssert": true
+  }
+}
