@@ -1,0 +1,6 @@
+.test {
+  background-color: yellow;
+}
+.hoge .inner {
+  width: 100px;
+}
