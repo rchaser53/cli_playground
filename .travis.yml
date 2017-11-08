@@ -7,3 +7,5 @@ node_js:
 sudo: false
 cache: yarn
 
+notifications:
+  email: false
