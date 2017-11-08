@@ -1,5 +1,6 @@
 import * as baseGrob from 'glob';
 import * as isGlob from 'is-glob';
+import * as async from 'async';
 
 export const globConverter = (srcArray: string[]): Promise<string[]> => {
   return srcArray.reduce(async (stackPromise: Promise<string[]>, targetPath: string): Promise<string[]> => {
@@ -33,4 +34,14 @@ export const convertGlobToActualPaths = (src: string): Promise<string[]> => {
   });
 };
 
-export default globConverter;
+
+export const promisedAsyncReduce = <T>(src: any[], memo, iterator: (stack, next, cb) => any): Promise<T> => {
+  return new Promise((resolve, reject) => {
+    return async.reduce(src, memo, iterator, (err, result) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(result);
+    });
+  });
+};

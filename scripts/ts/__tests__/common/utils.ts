@@ -1,7 +1,8 @@
 import test from 'ava';
 import {
   globConverter,
-  avoidSamePath
+  avoidSamePath,
+  promisedAsyncReduce
 } from '../../common/utils';
 
 test('should resolve glob paths and convert actual path', async (t) => {
@@ -26,3 +27,13 @@ test('should not duplicate', async (t) => {
     ['scripts/fixture/inputs/nest/nest.target']
   );
 });
+
+test('should not duplicate', async (t) => {
+  const result = await promisedAsyncReduce<number>([1, 2, 3], 0, (stack, next, callback) => {
+    stack += next;
+    callback(null, stack);
+  });
+
+  t.is(result, 6);
+});
+
