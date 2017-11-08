@@ -9,6 +9,14 @@ export const globConverter = (srcArray: string[]): Promise<string[]> => {
   }, Promise.resolve([]));
 };
 
+export const avoidSamePath = (targetArray: string[]): string[] => {
+  return targetArray.reduce((stack: string[], targetPath) => {
+    return stack.includes(targetPath)
+            ? stack
+            : stack.concat(targetPath);
+  }, []);
+};
+
 export const convertGlobToActualPaths = (src: string): Promise<string[]> => {
   return new Promise((resolve, reject) => {
     if (isGlob(src) === false) {
