@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run tsc && ava",
     "pretsc": "rimraf scripts/js",
-    "tsc": "tsc -p ."
+    "tsc": "tsc -p . && cross-env NODE_ENV=nyan node test.js",
+    "nyan": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "ava": "^0.19.1",
     "base-64": "^0.1.0",
     "copyfiles": "^1.2.0",
+    "cross-env": "^5.1.1",
     "del": "^3.0.0",
     "fs-jetpack": "^1.2.0",
     "glob": "^7.1.2",
