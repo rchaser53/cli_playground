@@ -4,6 +4,10 @@ node_js:
   - "6"
   - "8"
 
+script:
+  - if [ "${TRAVIS_BRANCH}" == "master" ] || [ "${VARIABLE}" == "develop" ]; then export NODE_ENV=23; fi
+  - npm run nyan
+
 sudo: false
 cache: yarn
 
